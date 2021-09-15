@@ -19,4 +19,3 @@ Step 2.) Commit changes with message
 
 Step 3.) Push changes to github
 `git push`
-
