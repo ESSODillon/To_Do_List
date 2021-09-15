@@ -7,26 +7,26 @@ Live Link: [To Do List App](http://localhost:8000)
 ## Create new repo
 
 First add branch to github
-git push --set-upstream origin name-of-branch
+`git push --set-upstream origin name-of-branch`
 
 ## Adding changes to github
 
 Step 1.) Add changes
-git add.
+`git add .`
 
 Step 2.) Commit changes with message
-git commit -m "Whatever message"
+`git commit -m "Whatever message"`
 
 Step 3.) Push changes to github
-git push
+`git push`
 
 ## Making a new branch
 
 Step 1.) Create new branch
-git branch name-of-branch
+`git branch name-of-branch`
 
 Step 2.) Switch to branch
-git checkout name-of-branch
+`git checkout name-of-branch`
 
 Step 3.) Add branch to github
-git push --set-upstream origin name-of-branch
+`git push --set-upstream origin name-of-branch`
