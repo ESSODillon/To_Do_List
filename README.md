@@ -4,10 +4,12 @@ Homework 2 for Dynamic Data Applications
 
 Live Link: [To Do List App](http://localhost:8000)
 
+## Create new repo
+
 First add branch to github
 git push --set-upstream origin name-of-branch
 
-Adding changes to github
+## Adding changes to github
 
 Step 1.) Add changes
 git add.
@@ -18,7 +20,7 @@ git commit -m "Whatever message"
 Step 3.) Push changes to github
 git push
 
-Making a new branch
+## Making a new branch
 
 Step 1.) Create new branch
 git branch name-of-branch
