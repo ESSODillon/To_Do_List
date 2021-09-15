@@ -11,8 +11,19 @@ import {
   List,
 } from "semantic-ui-react";
 import Task from "../components/Task";
+import NewTaskForm from "../components/NewTaskForm";
 
 const HomePage = () => {
+  const [NewTaskOpen, setNewTaskOpen] = React.useState(true);
+
+  function openNewTask() {
+    setNewTaskOpen(true);
+  }
+
+  function closeNewTask() {
+    setNewTaskOpen(false);
+  }
+
   return (
     <React.Fragment>
       <Container>
@@ -26,35 +37,16 @@ const HomePage = () => {
             </Header>
           </Grid.Column>
           <Grid.Column textAlign="right" width="4">
-            <Button color="instagram" icon="plus"></Button>
+            <Button
+              color="instagram"
+              icon="plus"
+              onClick={openNewTask}
+            ></Button>
           </Grid.Column>
         </Grid>
 
-        <Segment>
-          <Header as="h2">New Task</Header>
-          <Form>
-            <Form.Field
-              control="input"
-              label="Task Name"
-              placeholder="Enter task name..."
-            />
-            <Form.Field
-              control={Select}
-              label="Task Color"
-              placeholder="Choose task color..."
-              options={[
-                { text: "Red", value: "red" },
-                { text: "Yellow", value: "yellow" },
-                { text: "Green", value: "green" },
-              ]}
-            />
-            <Button.Group fluid>
-              <Button color="google plus">Cancel</Button>
-              <Button.Or></Button.Or>
-              <Button color="olive">Add Task</Button>
-            </Button.Group>
-          </Form>
-        </Segment>
+        {NewTaskOpen ? <NewTaskForm closeNewTask={closeNewTask} /> : null}
+
         <List>
           <Task name="Task 1" color="yellow"></Task>
           <Task name="Task 2" color="red"></Task>
