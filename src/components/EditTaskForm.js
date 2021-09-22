@@ -8,7 +8,7 @@ import {
   Input,
 } from "semantic-ui-react";
 
-const NewTaskForm = ({ closeNewTask, NewTask, setNewTask, addNewTask }) => {
+const EditTaskForm = ({ closeNewTask, NewTask, setNewTask, addNewTask }) => {
   function changeNewTask(e, { value, name }) {
     const newTaskClone = { ...NewTask };
     newTaskClone[name] = value;
@@ -56,4 +56,4 @@ const NewTaskForm = ({ closeNewTask, NewTask, setNewTask, addNewTask }) => {
   );
 };
 
-export default NewTaskForm;
+export default EditTaskForm;
