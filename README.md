@@ -2,7 +2,7 @@
 
 Homework 2 for Dynamic Data Applications
 
-Live Link: [To Do List App](http://localhost:8000)
+Live Link: [To Do List App](https://in-info-web4.informatics.iupui.edu/~dtpolley/N322/dtp-todo-list/)
 
 ## Create new repo
 
