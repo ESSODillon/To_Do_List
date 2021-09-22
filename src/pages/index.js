@@ -1,16 +1,8 @@
 import React from "react";
 import "semantic-ui-css/semantic.css";
-import {
-  Header,
-  Container,
-  Button,
-  Grid,
-  Segment,
-  Form,
-  Select,
-  List,
-} from "semantic-ui-react";
+import { Header, Container, Button, Grid, List } from "semantic-ui-react";
 import Task from "../components/Task";
+git;
 import NewTaskForm from "../components/NewTaskForm";
 
 const HomePage = () => {
