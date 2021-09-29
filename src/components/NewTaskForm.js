@@ -34,8 +34,13 @@ const NewTaskForm = ({ closeNewTask, NewTask, setNewTask, addNewTask }) => {
             placeholder="Choose task color..."
             options={[
               { text: "Red", value: "red" },
+              { text: "Orange", value: "orange" },
               { text: "Yellow", value: "yellow" },
               { text: "Green", value: "green" },
+              { text: "Blue", value: "blue" },
+              { text: "Purple", value: "purple" },
+              { text: "Teal", value: "teal" },
+              { text: "Pink", value: "pink" },
             ]}
             value={NewTask.color}
             onChange={changeNewTask}

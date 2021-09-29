@@ -1,13 +1,21 @@
 import React from "react";
 import "semantic-ui-css/semantic.css";
-import { Header, Container, Button, Grid, List } from "semantic-ui-react";
+import {
+  Header,
+  Container,
+  Button,
+  Grid,
+  List,
+  Input,
+} from "semantic-ui-react";
 import Task from "../components/Task";
 import NewTaskForm from "../components/NewTaskForm";
+import EditTaskForm from "../components/EditTaskForm";
 
 const HomePage = () => {
   const initialNewTask = {
-    name: "",
-    color: "",
+    name: "Walk the dog",
+    color: "purple",
   };
 
   const [NewTaskOpen, setNewTaskOpen] = React.useState(true);
@@ -23,10 +31,6 @@ const HomePage = () => {
     setNewTaskOpen(false);
   }
 
-  function showNewTaskOpen() {
-    console.log(NewTaskOpen);
-  }
-
   function addNewTask() {
     const listClone = [...list];
     listClone.push(NewTask);
@@ -35,31 +39,45 @@ const HomePage = () => {
     closeNewTask();
   }
 
-  // const taskList = [];
-
-  // list.forEach((task, index) => {
-  //   taskList.push(
-  //     <Task
-  //       key={`${task.name}-${index}`}
-  //       name={task.name}
-  //       color={task.color}
-  //     ></Task>
-  //   );
-  // });
-
-  function editTask(index) {
+  function editTask(index, value) {
     const newList = list.map((task, i) => {
       if (i !== index) return task;
       return {
-        name: `Edit ${task.name}`,
+        // trying to insert an object???
+        name: value,
         color: task.color,
       };
     });
     setList(newList);
   }
 
-  function deleteTask() {
+  function openEditor(index) {
+    const editor = list.map((task, i) => {
+      if (i !== index) return task;
+
+      return {
+        name: (
+          <EditTaskForm
+            taskName={task.name}
+            color={task.color}
+            setNewTask={setNewTask}
+            editTask={editTask}
+            NewTask={NewTask}
+            index={index}
+          ></EditTaskForm>
+        ),
+        color: task.color,
+      };
+    });
+    setList(editor);
+  }
+
+  function deleteTask(index) {
     // Array.filter is the solution for this
+    const newList = list.filter((task, i) => {
+      if (i !== index) return task;
+    });
+    setList(newList);
   }
 
   const taskList = list.map((task, index) => {
@@ -68,7 +86,7 @@ const HomePage = () => {
         key={`${task.name}-${index}`}
         name={task.name}
         color={task.color}
-        editTask={editTask}
+        openEditor={openEditor}
         deleteTask={deleteTask}
         index={index}
       />
@@ -77,6 +95,7 @@ const HomePage = () => {
 
   return (
     <React.Fragment>
+      <br></br>
       <Container>
         <Grid>
           <Grid.Column width="4">

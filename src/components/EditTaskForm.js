@@ -1,57 +1,41 @@
 import React from "react";
-import {
-  Segment,
-  Header,
-  Form,
-  Select,
-  Button,
-  Input,
-} from "semantic-ui-react";
+import { Button, Input, Container } from "semantic-ui-react";
 
-const EditTaskForm = ({ closeNewTask, NewTask, setNewTask, addNewTask }) => {
-  function changeNewTask(e, { value, name }) {
-    const newTaskClone = { ...NewTask };
-    newTaskClone[name] = value;
-    setNewTask(newTaskClone);
+const EditTaskForm = ({
+  taskName,
+  color,
+  setNewTask,
+  editTask,
+  NewTask,
+  index,
+}) => {
+  function changeEditTask(e, { value, name }) {
+    const editTaskClone = { ...NewTask };
+    editTaskClone[name] = value;
+    setNewTask(editTaskClone);
+
+    editTask(index, value);
+  }
+
+  function submitEdits() {
+    // editTask(index, "lol");
   }
 
   return (
     <React.Fragment>
-      <Segment>
-        <Header as="h2">New Task</Header>
-        <Form>
-          <Form.Field
-            control={Input}
-            label="Task Name"
-            placeholder="Enter task name..."
-            value={NewTask.name}
-            onChange={changeNewTask}
-            name="name"
-          />
-          <Form.Field
-            control={Select}
-            label="Task Color"
-            placeholder="Choose task color..."
-            options={[
-              { text: "Red", value: "red" },
-              { text: "Yellow", value: "yellow" },
-              { text: "Green", value: "green" },
-            ]}
-            value={NewTask.color}
-            onChange={changeNewTask}
-            name="color"
-          />
-          <Button.Group fluid>
-            <Button onClick={closeNewTask} type="button" color="google plus">
-              Cancel
-            </Button>
-            <Button.Or></Button.Or>
-            <Button onClick={addNewTask} type="button" color="olive">
-              Add Task
-            </Button>
-          </Button.Group>
-        </Form>
-      </Segment>
+      <Container>
+        <Input
+          onChange={changeEditTask}
+          defaultValue={taskName}
+          name="name"
+        ></Input>
+        <Button
+          onClick={submitEdits}
+          type="button"
+          color="green"
+          icon="check"
+        ></Button>
+      </Container>
     </React.Fragment>
   );
 };
