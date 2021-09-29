@@ -1,7 +1,7 @@
 import React from "react";
-import { List, Grid, Label, Button } from "semantic-ui-react";
+import { List, Grid, Label, Button, Flag } from "semantic-ui-react";
 
-const Task = ({ name, color, openEditor, deleteTask, index }) => {
+const Task = ({ name, color, openEditor, deleteTask, index, flag }) => {
   function editCurrentTask() {
     openEditor(index);
   }
@@ -17,6 +17,7 @@ const Task = ({ name, color, openEditor, deleteTask, index }) => {
           <Grid.Column>
             <Label color={color} size="large">
               {name}
+              <Flag name={flag}></Flag>
             </Label>
           </Grid.Column>
           <Grid.Column textAlign="right">

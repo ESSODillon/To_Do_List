@@ -46,6 +46,22 @@ const NewTaskForm = ({ closeNewTask, NewTask, setNewTask, addNewTask }) => {
             onChange={changeNewTask}
             name="color"
           />
+          <Form.Field
+            control={Select}
+            label="Flag Name"
+            placeholder="Choose a flag..."
+            options={[
+              { text: "United States", value: "us" },
+              { text: "United Kingdom", value: "uk" },
+              { text: "Australia", value: "au" },
+              { text: "Russia", value: "ru" },
+              { text: "China", value: "cn" },
+              { text: "Ireland", value: "ie" },
+            ]}
+            value={NewTask.flag}
+            onChange={changeNewTask}
+            name="flag"
+          />
           <Button.Group fluid>
             <Button onClick={closeNewTask} type="button" color="google plus">
               Cancel

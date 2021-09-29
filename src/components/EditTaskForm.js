@@ -1,14 +1,7 @@
 import React from "react";
 import { Button, Input, Container } from "semantic-ui-react";
 
-const EditTaskForm = ({
-  taskName,
-  color,
-  setNewTask,
-  editTask,
-  NewTask,
-  index,
-}) => {
+const EditTaskForm = ({ taskName, setNewTask, editTask, NewTask, index }) => {
   const editTaskClone = { ...NewTask };
 
   function changeEditTask(e, { value, name }) {

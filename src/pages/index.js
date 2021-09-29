@@ -1,6 +1,13 @@
 import React from "react";
 import "semantic-ui-css/semantic.css";
-import { Header, Container, Button, Grid, List } from "semantic-ui-react";
+import {
+  Header,
+  Container,
+  Button,
+  Grid,
+  List,
+  Image,
+} from "semantic-ui-react";
 import Task from "../components/Task";
 import NewTaskForm from "../components/NewTaskForm";
 import EditTaskForm from "../components/EditTaskForm";
@@ -9,6 +16,7 @@ const HomePage = () => {
   const initialNewTask = {
     name: "Walk the dog",
     color: "purple",
+    flag: "cn",
   };
 
   const [NewTaskOpen, setNewTaskOpen] = React.useState(true);
@@ -39,6 +47,7 @@ const HomePage = () => {
         // trying to insert an object???
         name: value,
         color: task.color,
+        flag: task.flag,
       };
     });
     setList(newList);
@@ -52,7 +61,6 @@ const HomePage = () => {
         name: (
           <EditTaskForm
             taskName={task.name}
-            color={task.color}
             setNewTask={setNewTask}
             editTask={editTask}
             NewTask={NewTask}
@@ -79,6 +87,7 @@ const HomePage = () => {
         key={`${task.name}-${index}`}
         name={task.name}
         color={task.color}
+        flag={task.flag}
         openEditor={openEditor}
         deleteTask={deleteTask}
         index={index}
@@ -90,13 +99,19 @@ const HomePage = () => {
     <React.Fragment>
       <br></br>
       <Container>
+        <Image
+          src="http://www.workflowmax.com/hubfs/6-things-to-do-list.png"
+          size="medium"
+          centered
+        />
+        <br></br>
         <Grid>
           <Grid.Column width="4">
             <Button icon="bars"></Button>
           </Grid.Column>
           <Grid.Column width="8">
             <Header textAlign="center" as="h1">
-              Todo List
+              To Do List
             </Header>
           </Grid.Column>
           <Grid.Column textAlign="right" width="4">
