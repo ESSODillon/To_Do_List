@@ -9,16 +9,15 @@ const EditTaskForm = ({
   NewTask,
   index,
 }) => {
+  const editTaskClone = { ...NewTask };
+
   function changeEditTask(e, { value, name }) {
-    const editTaskClone = { ...NewTask };
     editTaskClone[name] = value;
     setNewTask(editTaskClone);
-
-    editTask(index, value);
   }
 
   function submitEdits() {
-    // editTask(index, "lol");
+    editTask(index, editTaskClone.name);
   }
 
   return (
